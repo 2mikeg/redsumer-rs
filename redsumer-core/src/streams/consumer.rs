@@ -36,13 +36,13 @@ where
     fn unwrap_by_key(&self, key: &K) -> Vec<StreamId> {
         let mut ids: Vec<StreamId> = Vec::new();
 
+        let key_str = key.to_string();
         for stream in self.keys.iter() {
             match stream.key.eq(&key.to_string()) {
                 true => ids.extend(stream.ids.to_owned()),
                 false => warn!(
                     "An unexpected stream name found while extracting the key {}: {}. ",
-                    &key.to_string(),
-                    stream.key,
+                    key_str, stream.key,
                 ),
             };
         }
