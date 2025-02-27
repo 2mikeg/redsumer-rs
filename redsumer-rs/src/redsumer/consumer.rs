@@ -1,9 +1,9 @@
 use redis::{streams::StreamId, Client, Commands};
 use tracing::{debug, info};
 
-use crate::core::streams::types::{LatestPendingMessageId, NextIdToClaim};
+use redsumer_core::streams::types::{LatestPendingMessageId, NextIdToClaim};
 #[allow(unused_imports)]
-use crate::core::{
+use redsumer_core::{
     client::{ClientArgs, RedisClientBuilder},
     result::{RedsumerError, RedsumerResult},
     streams::{

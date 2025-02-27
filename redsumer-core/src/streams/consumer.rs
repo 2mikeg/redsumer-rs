@@ -8,11 +8,9 @@ use redis::{
 use tracing::{debug, error, warn};
 
 #[allow(unused_imports)]
-use crate::core::{
-    result::{RedsumerError, RedsumerResult},
-    streams::types::{
-        LastDeliveredMilliseconds, LatestPendingMessageId, NextIdToClaim, TotalTimesDelivered,
-    },
+use crate::result::{RedsumerError, RedsumerResult};
+use crate::streams::types::{
+    LastDeliveredMilliseconds, LatestPendingMessageId, NextIdToClaim, TotalTimesDelivered,
 };
 
 pub const BEGINNING_OF_TIME_ID: &str = "0-0";

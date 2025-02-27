@@ -186,44 +186,6 @@
 //! - **Pull Requests**: If you've fixed a bug or implemented a new feature, we'd love to see your work! Please submit a pull request. Make sure your code follows the existing style and all tests pass.
 //!
 //! Thank you for your interest in improving **redsumer**!
-mod redsumer;
-
-pub mod client {
-    //! Resources to manage the Redis client.
-    pub use redsumer_core::client::{ClientArgs, ClientCredentials, CommunicationProtocol};
-}
-
-pub mod consumer {
-    //! Resources to consume messages from a Redis stream.
-    pub use super::redsumer::consumer::{
-        AckMessageReply, ClaimMessagesOptions, ConsumeMessagesReply, Consumer, ConsumerConfig,
-        IsStillMineReply, ReadNewMessagesOptions, ReadPendingMessagesOptions,
-    };
-    pub use redsumer_core::streams::types::{Id, LastDeliveredMilliseconds, TotalTimesDelivered};
-}
-
-pub mod producer {
-    //! Resources to produce messages in a Redis stream.
-    pub use super::redsumer::producer::{ProduceMessageReply, Producer, ProducerConfig};
-    pub use redsumer_core::streams::types::Id;
-}
-
-pub mod redis {
-    //! Utilities from [redis] crate.
-    pub use redis::streams::StreamId;
-    pub use redis::{from_redis_value, ErrorKind, FromRedisValue, RedisError, ToRedisArgs, Value};
-}
-
-pub mod results {
-    //! The result types used in redsumer.
-    pub use redsumer_core::result::{RedsumerError, RedsumerResult};
-}
-
-pub mod prelude {
-    //! A global import for crate resources.
-    pub use super::client::*;
-    pub use super::consumer::*;
-    pub use super::producer::*;
-    pub use super::redis::*;
-    pub use super::results::*;
-}
+pub mod client;
+pub mod result;
+pub mod streams;

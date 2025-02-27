@@ -2,7 +2,7 @@ use redis::{Client, Commands, ToRedisArgs};
 use tracing::{debug, info};
 
 #[allow(unused_imports)]
-use crate::core::{
+use redsumer_core::{
     client::{ClientArgs, ClientCredentials, RedisClientBuilder},
     result::{RedsumerError, RedsumerResult},
     streams::{producer::ProducerCommands, types::Id},
