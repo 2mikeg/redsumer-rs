@@ -101,7 +101,7 @@ where
 mod test_produce_from_map {
     use std::collections::BTreeMap;
 
-    use redis::{cmd, ErrorKind, Value};
+    use redis::{ErrorKind, Value, cmd};
     use redis_test::{MockCmd, MockRedisConnection};
 
     use super::*;
@@ -159,7 +159,7 @@ mod test_produce_from_map {
 
 #[cfg(test)]
 mod test_produce_from_items {
-    use redis::{cmd, ErrorKind, Value};
+    use redis::{ErrorKind, Value, cmd};
     use redis_test::{MockCmd, MockRedisConnection};
 
     use super::*;

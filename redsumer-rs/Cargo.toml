@@ -2,7 +2,7 @@
 name = "redsumer"
 description = "Lightweight implementation of Redis Streams for Rust"
 version = "0.5.4"
-edition = "2021"
+edition = "2024"
 license-file = "../LICENSE"
 readme = "../README.md"
 keywords = ["redis", "redis_streams"]
@@ -10,7 +10,10 @@ homepage = "https://github.com/enerBit/redsumer-rs"
 repository = "https://github.com/enerBit/redsumer-rs"
 documentation = "https://docs.rs/redsumer"
 categories = ["database-implementations"]
-authors = ["Juan Manuel Tamayo <jmtamayog23@gmail.com>"]
+authors = [
+    "Juan Manuel Tamayo <jmtamayog23@gmail.com>",
+    "Mike Guzmán <mike2guz@gmail.com>",
+]
 
 [dependencies]
 redis = { version = ">=0.28.0,<0.29.0", features = ["streams"] }

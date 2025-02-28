@@ -293,7 +293,10 @@ mod test_client_args {
         let args: ClientArgs = ClientArgs::new(Some(credentials), host, port, db, protocol_version);
 
         // Verify if the debug is correct:
-        assert_eq!(format!("{:?}", args), "ClientArgs { credentials: Some(ClientCredentials { user: \"user\", password: \"****\" }), host: \"localhost\", port: 6379, db: 1, protocol: RESP2 }");
+        assert_eq!(
+            format!("{:?}", args),
+            "ClientArgs { credentials: Some(ClientCredentials { user: \"user\", password: \"****\" }), host: \"localhost\", port: 6379, db: 1, protocol: RESP2 }"
+        );
     }
 
     #[test]

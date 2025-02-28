@@ -1,9 +1,9 @@
 use redis::{
+    Commands, ErrorKind, RedisError, RedisResult, ToRedisArgs,
     streams::{
         StreamAutoClaimOptions, StreamAutoClaimReply, StreamId, StreamPendingCountReply,
         StreamReadOptions, StreamReadReply,
     },
-    Commands, ErrorKind, RedisError, RedisResult, ToRedisArgs,
 };
 use tracing::{debug, error, warn};
 
@@ -551,7 +551,7 @@ where
 
 #[cfg(test)]
 mod test_create_consumer_group {
-    use redis::{cmd, ErrorKind, RedisError};
+    use redis::{ErrorKind, RedisError, cmd};
     use redis_test::{MockCmd, MockRedisConnection};
 
     use super::*;
@@ -639,7 +639,7 @@ mod test_create_consumer_group {
 
 #[cfg(test)]
 mod test_verify_if_stream_exists {
-    use redis::{cmd, ErrorKind, RedisError};
+    use redis::{ErrorKind, RedisError, cmd};
     use redis_test::{MockCmd, MockRedisConnection};
 
     use super::*;
@@ -697,7 +697,7 @@ mod test_verify_if_stream_exists {
 
 #[cfg(test)]
 mod test_read_new_messages {
-    use redis::{cmd, Value};
+    use redis::{Value, cmd};
     use redis_test::{MockCmd, MockRedisConnection};
 
     use super::*;
@@ -823,7 +823,7 @@ mod test_read_new_messages {
 
 #[cfg(test)]
 mod test_read_pending_messages {
-    use redis::{cmd, Value};
+    use redis::{Value, cmd};
     use redis_test::{MockCmd, MockRedisConnection};
 
     use super::*;
@@ -987,7 +987,7 @@ mod test_read_pending_messages {
 
 #[cfg(test)]
 mod test_claim_pending_messages {
-    use redis::{cmd, Value};
+    use redis::{Value, cmd};
     use redis_test::{MockCmd, MockRedisConnection};
 
     use super::*;
@@ -1163,7 +1163,7 @@ mod test_claim_pending_messages {
 
 #[cfg(test)]
 mod test_if_is_still_mine {
-    use redis::{cmd, Value};
+    use redis::{Value, cmd};
     use redis_test::{MockCmd, MockRedisConnection};
 
     use super::*;

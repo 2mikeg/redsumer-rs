@@ -1,4 +1,4 @@
-use redis::{streams::StreamId, Client, Commands};
+use redis::{Client, Commands, streams::StreamId};
 use tracing::{debug, info};
 
 use redsumer_core::streams::types::{LatestPendingMessageId, NextIdToClaim};
@@ -7,7 +7,7 @@ use redsumer_core::{
     client::{ClientArgs, RedisClientBuilder},
     result::{RedsumerError, RedsumerResult},
     streams::{
-        consumer::{ConsumerCommands, BEGINNING_OF_TIME_ID},
+        consumer::{BEGINNING_OF_TIME_ID, ConsumerCommands},
         types::{Id, LastDeliveredMilliseconds, TotalTimesDelivered},
     },
 };
@@ -801,9 +801,11 @@ mod test_is_still_mine_reply {
         assert!(reply.belongs_to_me());
 
         assert!(reply.get_last_delivered_milliseconds().is_some());
-        assert!(reply
-            .get_last_delivered_milliseconds()
-            .eq(&last_delivered_milliseconds));
+        assert!(
+            reply
+                .get_last_delivered_milliseconds()
+                .eq(&last_delivered_milliseconds)
+        );
 
         assert!(reply.get_total_times_delivered().is_some());
         assert!(reply.get_total_times_delivered().eq(&total_times_delivered));
