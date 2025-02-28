@@ -188,6 +188,10 @@
 //! Thank you for your interest in improving **redsumer**!
 mod redsumer;
 
+pub mod pubsub {
+    pub use super::redsumer::pubsub;
+}
+
 pub mod client {
     //! Resources to manage the Redis client.
     pub use redsumer_core::client::{ClientArgs, ClientCredentials, CommunicationProtocol};

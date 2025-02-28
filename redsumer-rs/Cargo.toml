@@ -16,7 +16,12 @@ authors = [
 ]
 
 [dependencies]
-redis = { version = ">=0.28.0,<0.29.0", features = ["streams"] }
+futures = "0.3.31"
+redis = { version = ">=0.28.0,<0.29.0", features = [
+    "streams",
+    "aio",
+    "tokio-comp",
+] }
 tracing = { version = ">=0.1.40" }
 redsumer-core = { path = "../redsumer-core" }
 
