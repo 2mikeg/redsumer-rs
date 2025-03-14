@@ -215,7 +215,9 @@ pub mod producer {
 pub mod redis {
     //! Utilities from [redis] crate.
     pub use redis::streams::StreamId;
-    pub use redis::{ErrorKind, FromRedisValue, RedisError, ToRedisArgs, Value, from_redis_value};
+    pub use redis::{
+        ErrorKind, FromRedisValue, RedisError, RedisWrite, ToRedisArgs, Value, from_redis_value,
+    };
 }
 
 pub mod results {
